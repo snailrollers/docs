@@ -1,0 +1,97 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Spooler",
+  "colors": {
+    "primary": "#2563EB",
+    "light": "#60A5FA",
+    "dark": "#1D4ED8"
+  },
+  "favicon": "/images/favicon.png",
+  "logo": {
+    "light": "/images/logo-light.svg",
+    "dark": "/images/logo-dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Web App",
+        "href": "https://app.spooler.cz"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Přihlásit se",
+      "href": "https://app.spooler.cz"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Uživatelský manuál",
+        "groups": [
+          {
+            "group": "Začínáme",
+            "pages": ["introduction", "quickstart"]
+          },
+          {
+            "group": "Zařízení Spooler",
+            "pages": [
+              "hardware/overview",
+              "hardware/installation",
+              "hardware/display-leds",
+              "hardware/ble-advertising"
+            ]
+          },
+          {
+            "group": "Mobilní aplikace",
+            "pages": [
+              "mobile-app/getting-started",
+              "mobile-app/pairing",
+              "mobile-app/measurement",
+              "mobile-app/spools",
+              "mobile-app/history-sync"
+            ]
+          },
+          {
+            "group": "Webová aplikace",
+            "pages": [
+              "web-app/dashboard",
+              "web-app/spools",
+              "web-app/projects",
+              "web-app/devices",
+              "web-app/reports"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Web App",
+          "href": "https://app.spooler.cz",
+          "icon": "globe"
+        },
+        {
+          "anchor": "Mobilní aplikace",
+          "href": "https://apps.apple.com",
+          "icon": "mobile"
+        },
+        {
+          "anchor": "GitHub",
+          "href": "https://github.com/snailrollers",
+          "icon": "github"
+        }
+      ]
+    }
+  },
+  "contextual": {
+    "options": ["copy", "view", "claude"]
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/snailrollers"
+    }
+  }
+}
