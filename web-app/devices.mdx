@@ -1,0 +1,50 @@
+---
+title: "Zařízení ve webové aplikaci"
+description: "Registrace a správa Spooler zařízení"
+---
+
+## Přehled zařízení
+
+Stránka **Zařízení** zobrazuje všechna Spooler registrovaná v organizaci. Vidíte stav připojení, baterii a přiřazenou cívku.
+
+### Karta zařízení
+
+| Informace | Popis |
+|-----------|-------|
+| **Název** | Editovatelný alias (výchozí: sériové číslo) |
+| **Online / Offline** | Zařízení je online pokud bylo viděno v posledních 5 minutách |
+| **Baterie** | Aktuální stav nabití v % |
+| **Firmware** | Verze firmware nainstalovaná na zařízení |
+| **Last Seen** | Kdy naposledy komunikovalo se serverem |
+
+## Registrace zařízení
+
+Nové zařízení se registruje přes **mobilní aplikaci** (párování přes BLE). Ve webové aplikaci se pak automaticky zobrazí.
+
+Alternativně lze zaregistrovat manuálně:
+
+1. Klikněte na **+ Registrovat zařízení**
+2. Zadejte sériové číslo (najdete na štítku na Spooler)
+3. Volitelně zadejte alias a přiřaďte ke skupině
+
+## Konfigurace zařízení
+
+Kliknutím na **Configure** na kartě zařízení otevřete nastavení:
+
+| Nastavení | Popis |
+|-----------|-------|
+| **Alias** | Vlastní název zařízení |
+| **Kalibrační faktor** | mm na otáčku (přepíše hodnotu v zařízení) |
+| **Upozornění** | Práh baterie pro notifikaci |
+
+<Info>
+Změna kalibračního faktoru na webu se synchronizuje do zařízení při dalším BLE připojení přes mobilní aplikaci.
+</Info>
+
+## Online / Offline stav
+
+Stav zařízení se aktualizuje každých 5 minut:
+- **Online** (zelená) — zařízení komunikovalo v posledních 5 minutách
+- **Offline** (šedá) — zařízení není dosažitelné nebo je vypnuté
+
+Poslední známá data (délka, baterie) zůstávají viditelná i v offline stavu.

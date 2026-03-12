@@ -1,0 +1,59 @@
+---
+title: "BLE komunikace"
+description: "Jak Spooler komunikuje přes Bluetooth Low Energy"
+---
+
+## Přehled
+
+Spooler používá **Bluetooth Low Energy (BLE 5.0)** pro komunikaci s mobilní aplikací. Zařízení nepřetržitě vysílá reklamní pakety a čeká na připojení.
+
+## Reklamní pakety
+
+Bez aktivního BLE spojení Spooler každých **500–1000 ms** vysílá reklamní paket s aktuálními daty:
+
+| Pole | Typ | Popis |
+|------|-----|-------|
+| Rotace | int32 | Celkový počet otáček (kumulativní) |
+| Baterie | uint8 | Stav baterie v % (0–100) |
+| Flags | uint8 | Stavové příznaky |
+| Zbývá | int16 | Zbývající délka cívky v dm |
+
+### Stavové příznaky (flags)
+
+| Bit | Název | Popis |
+|-----|-------|-------|
+| 0 | MEASURING | Probíhá měření (pohyb detekován) |
+| 1 | SPOOL_PAIRED | Cívka je přiřazena |
+| 2 | LOW_BATTERY | Baterie pod 20% |
+| 3 | CHARGING | Nabíjení |
+| 4 | CALIBRATED | Kalibrace byla provedena |
+| 5 | IDLE | Žádný pohyb po 60s |
+
+## GATT Služby
+
+Po připojení mobilní aplikace jsou dostupné tyto BLE charakteristiky:
+
+| Charakteristika | UUID | Vlastnosti | Popis |
+|----------------|------|------------|-------|
+| Measurement | `0xAA01` | READ + NOTIFY | Aktuální měření (12B) |
+| Command | `0xAA02` | WRITE + NOTIFY | Příkazy a odpovědi |
+| Bulk | `0xAA03` | WRITE_NR + INDICATE | Přenos historie (chunky) |
+| Spool | `0xAA04` | READ + WRITE + NOTIFY | Data přiřazené cívky |
+| Config | `0xAA05` | READ + WRITE | Konfigurace zařízení |
+
+Všechny charakteristiky jsou součástí Meter Service (`0x2233`).
+
+## Synchronizace historie
+
+Spooler ukládá historii měření do NVS flash paměti (ESP32). Při každém připojení mobilní aplikace proběhne automatická synchronizace:
+
+1. Aplikace odešle příkaz `CMD_HISTORY_INFO` (0x30)
+2. Zařízení odpoví počtem uložených událostí a časovým rozsahem
+3. Aplikace odešle `CMD_HISTORY_EXPORT` (0x31) s časovým rozsahem
+4. Zařízení odešle historii v blocích (chunks) po 0xAA03
+
+Každá historická událost obsahuje: timestamp, délku v mm, úhel enkodéru a stavové příznaky.
+
+<Info>
+Data v historii jsou přepočtena z rotací na milimetry přímo firmwarem, s použitím aktuálního kalibračního faktoru.
+</Info>

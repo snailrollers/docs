@@ -1,0 +1,61 @@
+---
+title: "Začínáme s mobilní aplikací"
+description: "Instalace, přihlášení a první spuštění"
+---
+
+## Stažení aplikace
+
+<CardGroup cols={2}>
+  <Card title="App Store" icon="apple" href="#">
+    iOS 14 a novější
+  </Card>
+  <Card title="Google Play" icon="android" href="#">
+    Android 10 a novější
+  </Card>
+</CardGroup>
+
+## Přihlášení
+
+Aplikace používá stejný účet jako webová aplikace na [app.spooler.cz](https://app.spooler.cz).
+
+1. Otevřete aplikaci
+2. Klepněte na **Přihlásit se přes Google** nebo zadejte e-mail a heslo
+3. Po přihlášení se zobrazí hlavní obrazovka
+
+<Info>
+Pokud nemáte účet, zaregistrujte se nejprve na [app.spooler.cz](https://app.spooler.cz). Registrace je zdarma.
+</Info>
+
+## Oprávnění
+
+Aplikace vyžaduje tato oprávnění:
+
+| Oprávnění | Proč |
+|-----------|------|
+| **Bluetooth** | Komunikace se zařízeními Spooler |
+| **Poloha** (Android) | Povinné pro BLE scanning na Androidu |
+| **Kamera** | Skenování QR kódů cívek |
+| **Internet** | Synchronizace dat s cloudem |
+
+<Warning>
+Na Androidu musí být **poloha povolena** pro BLE scanning — jde o požadavek operačního systému, aplikace vaši polohu neukládá.
+</Warning>
+
+## Hlavní navigace
+
+Aplikace má čtyři záložky v dolní liště:
+
+| Záložka | Popis |
+|---------|-------|
+| **Měření** | Aktuální hodnoty ze připojených zařízení |
+| **Zařízení** | Správa a párování Spooler |
+| **Cívky** | Zásobník cívek a přiřazení |
+| **Nastavení** | Účet, organizace, předvolby |
+
+## Offline režim
+
+Aplikace funguje i bez internetového připojení:
+
+- Data ze Spooler se ukládají lokálně do SQLite databáze
+- Po obnovení připojení se automaticky synchronizují do cloudu
+- Ikona ⚠️ v horní liště signalizuje offline režim

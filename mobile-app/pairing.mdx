@@ -1,0 +1,66 @@
+---
+title: "Párování zařízení"
+description: "Jak přidat a spárovat Spooler s mobilní aplikací"
+---
+
+## Přidání nového zařízení
+
+<Steps>
+  <Step title="Otevřete záložku Zařízení">
+    V dolní navigaci klepněte na ikonu **Zařízení**. Zobrazí se seznam vašich zařízení.
+  </Step>
+
+  <Step title="Spusťte skenování">
+    Klepněte na tlačítko **Skenovat** (ikona Bluetooth v pravém horním rohu). Otevře se dialog se seznamem dostupných zařízení v okolí.
+
+    <Tip>
+    Přesvědčte se, že Spooler je zapnuté a svítí na displeji. Zařízení musí být do 10 metrů od telefonu.
+    </Tip>
+  </Step>
+
+  <Step title="Vyberte zařízení">
+    V seznamu uvidíte zařízení ve formátu **Spooler-XXXX** (kde XXXX je unikátní suffix). Klepněte na požadované zařízení.
+
+    Aplikace automaticky filtruje jiná BLE zařízení — zobrazují se pouze Spooler.
+  </Step>
+
+  <Step title="Potvrďte párování">
+    Po výběru se aplikace připojí a stáhne základní info ze zařízení (firmware verze, kalibrační faktor, sériové číslo). Zařízení se přidá do vašeho seznamu.
+  </Step>
+</Steps>
+
+## Správa zařízení
+
+Na kartě zařízení vidíte:
+
+| Informace | Popis |
+|-----------|-------|
+| **Název** | Editovatelný alias (výchozí: sériové číslo) |
+| **Status** | Online / Offline + čas poslední aktivity |
+| **Baterie** | Aktuální stav nabití |
+| **Firmware** | Verze nainstalovaného firmware |
+| **Přiřazená cívka** | Aktuálně spárovaná cívka |
+
+## Přiřazení cívky k zařízení
+
+Jedno Spooler může být v daný okamžik přiřazeno k právě jedné cívce:
+
+1. Na kartě zařízení klepněte na **Přiřadit cívku**
+2. Vyberte cívku ze zásobníku (nebo naskenujte QR kód)
+3. Potvrďte přiřazení
+
+<Info>
+Při přiřazení nové cívky se předchozí přiřazení automaticky zruší. Cívka je vždy přiřazena k nejvýše jednomu zařízení.
+</Info>
+
+## Odpojení zařízení
+
+Zařízení odpojíte **přejetím prstu doleva** na kartě zařízení a klepnutím na **Odpojit**. Zařízení zůstane v zásobníku jako Offline.
+
+## Smazání zařízení
+
+Pro trvalé odebrání zařízení z účtu přejděte do detailu zařízení → menu (⋮) → **Smazat zařízení**.
+
+<Warning>
+Smazání zařízení odstraní i historii měření uloženou k tomuto zařízení. Tuto akci nelze vrátit.
+</Warning>

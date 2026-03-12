@@ -1,0 +1,61 @@
+---
+title: "Měření"
+description: "Jak sledovat aktuální měření ze zařízení Spooler"
+---
+
+## Záložka Měření
+
+Záložka Měření zobrazuje živá data z připojených zařízení Spooler.
+
+### Co vidíte na obrazovce
+
+```
+┌─────────────────────────────────┐
+│  Spooler-A3F2          🔋 78%  │
+│                                 │
+│         1 247.3 m               │
+│  ████████████░░░░░  65%         │
+│                                 │
+│  Cívka: Kabel UTP Cat6          │
+│  Zbývá: 752.7 m                 │
+│  Rychlost: 2.1 m/min            │
+└─────────────────────────────────┘
+```
+
+| Prvek | Popis |
+|-------|-------|
+| Velké číslo | Délka naměřená od posledního resetu |
+| Progress bar | Spotřeba cívky (zelená → žlutá → červená) |
+| Cívka | Název přiřazené cívky |
+| Zbývá | Odhadovaná zbývající délka |
+| Rychlost | Průměrná rychlost odvíjení za poslední minutu |
+
+## Více zařízení najednou
+
+Aplikace podporuje více současně připojených Spooler. Každé zařízení má vlastní kartu. Mezi zařízeními přepínáte horizontálním přejetím.
+
+<Tip>
+Na velkých tabletech se zobrazují karty vedle sebe.
+</Tip>
+
+## Reset měření
+
+Pro reset aktuální hodnoty na 0:
+- V aplikaci: dlouze přidržte hodnotu měření → **Reset**
+- Na zařízení: přidržte tlačítko **2 sekundy**
+
+<Warning>
+Reset nemaže historii. Pouze vynuluje aktuální zobrazovanou hodnotu. Historie zůstává zachována v paměti Spooler.
+</Warning>
+
+## Notifikace
+
+Aplikace vás upozorní když:
+
+| Událost | Notifikace |
+|---------|-----------|
+| Cívka pod 10% | "Cívka [název] je skoro prázdná" |
+| Zařízení se odpojilo | "Spooler je mimo dosah" |
+| Baterie pod 15% | "Nízká baterie na [zařízení]" |
+
+Notifikace lze vypnout v **Nastavení → Upozornění**.

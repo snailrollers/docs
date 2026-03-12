@@ -1,0 +1,67 @@
+---
+title: "Správa cívek v aplikaci"
+description: "Zásobník cívek, přiřazení k zařízením a sledování spotřeby"
+---
+
+## Zásobník cívek
+
+Záložka **Cívky** zobrazuje všechny cívky synchronizované z webové aplikace. Zde vidíte aktuální stav každé cívky a můžete ji přiřadit k zařízení.
+
+### Karta cívky
+
+```
+┌─────────────────────────────────┐
+│  Kabel UTP Cat6 — Modrá        │
+│  [Aktivní]                      │
+│                                 │
+│  Aktuální délka:  752.7 m       │
+│  Počáteční:      1000.0 m       │
+│  Spotřeba:        24.7%         │
+│  ████████░░░░░░░               │
+│                                 │
+│  [Přiřadit]  [Historie]         │
+└─────────────────────────────────┘
+```
+
+## Přidání nové cívky
+
+Cívky se primárně spravují ve webové aplikaci. Z mobilní aplikace lze rychle přidat cívku:
+
+1. Záložka **Cívky** → tlačítko **+**
+2. Zadejte název a počáteční délku
+3. Vyberte typ kabelu
+4. Uložte — cívka se synchronizuje do cloudu
+
+## Přiřazení cívky k zařízení
+
+<Steps>
+  <Step title="Otevřete kartu cívky">
+    Klepněte na cívku v zásobníku.
+  </Step>
+  <Step title="Klepněte na Přiřadit zařízení">
+    V detailu cívky stiskněte **Přiřadit zařízení**.
+  </Step>
+  <Step title="Vyberte Spooler">
+    Ze seznamu vyberte připojené zařízení. Jedno zařízení = jedna cívka.
+  </Step>
+</Steps>
+
+<Info>
+Přiřazení je obousměrné — stejné přiřazení vidíte jak na kartě cívky, tak na kartě zařízení.
+</Info>
+
+## Skenování QR kódu
+
+Každá cívka může mít vytištěný QR kód (generuje se ve webové aplikaci). Pro rychlé přiřazení:
+
+1. Na záložce Cívky klepněte na ikonu **QR** (skener)
+2. Namiřte kameru na QR kód na cívce
+3. Aplikace automaticky identifikuje cívku a nabídne přiřazení
+
+## Stavy cívky
+
+| Stav | Barva | Popis |
+|------|-------|-------|
+| **Aktivní** | Zelená | Cívka se používá |
+| **Dokončená** | Šedá | Kabel spotřebován |
+| **Archivovaná** | Červená | Odebrána ze zásobníku |

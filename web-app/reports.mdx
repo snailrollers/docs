@@ -1,0 +1,55 @@
+---
+title: "Reporty"
+description: "Přehledy spotřeby, exporty a statistiky"
+---
+
+## Přehledová stránka Reporty
+
+Stránka **Reporty** (`/dashboard/reports`) agreguje data ze všech projektů a cívek do přehledných grafů a tabulek.
+
+## Dostupné přehledy
+
+### Spotřeba v čase
+
+Graf spotřeby kabelů za zvolené období (den / týden / měsíc). Lze filtrovat dle:
+- Projektu
+- Typu kabelu
+- Zařízení
+
+### Zásobník cívek — stav
+
+Přehled stavu všech cívek seřazený dle zbývající délky. Cívky blízko vyčerpání jsou zvýrazněny červeně.
+
+### Aktivita zařízení
+
+Přehled aktivity jednotlivých Spooler — kdy byla naposled aktivní, kolik metrů zaznamenala za poslední týden.
+
+## Export dat
+
+### PDF report
+
+Klikněte na **Exportovat PDF** — vygeneruje se formátovaný report vhodný pro zákazníka nebo archivaci. Report obsahuje:
+
+- Souhrn za zvolené období
+- Tabulku spotřeby dle projektů
+- Tabulku stavu cívek
+- Aktivitu zařízení
+
+### CSV export
+
+Pro zpracování v Excelu nebo jiném nástroji použijte **Exportovat CSV**. Export obsahuje surová data všech měření za zvolené období.
+
+<Tip>
+Pro automatické pravidelné exporty použijte API — dokumentace je dostupná na [app.spooler.cz/api/v1/docs](https://app.spooler.cz/api/v1/docs).
+</Tip>
+
+## Filtry a časový rozsah
+
+Všechny reporty lze filtrovat pomocí:
+
+| Filtr | Možnosti |
+|-------|---------|
+| **Časový rozsah** | Dnes, Tento týden, Tento měsíc, Vlastní |
+| **Projekt** | Konkrétní projekt nebo Všechny |
+| **Typ kabelu** | Konkrétní typ nebo Všechny |
+| **Zařízení** | Konkrétní Spooler nebo Všechna |

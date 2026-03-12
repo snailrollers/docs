@@ -1,0 +1,79 @@
+---
+title: "Cívky ve webové aplikaci"
+description: "Správa zásobníku cívek, typů kabelů a štítků"
+---
+
+## Stránka Cívky
+
+Stránka **Cívky** (`/dashboard/spools`) obsahuje tři záložky:
+
+<Tabs>
+  <Tab title="Cívky">
+    Hlavní zásobník všech cívek v organizaci. Zobrazuje se jako mřížka karet.
+
+    ### Karta cívky
+
+    Každá karta ukazuje:
+    - **Název cívky** a typ kabelu (s barevným indikátorem)
+    - **Stav**: Aktivní / Dokončená / Archivovaná
+    - **Aktuální délka** a počáteční délka
+    - **Progress bar** spotřeby
+    - Přiřazené štítky
+
+    ### Akce na kartě
+    | Tlačítko | Akce |
+    |----------|------|
+    | ✏️ Upravit | Editace názvu, délky, štítků |
+    | 🔌 | Přiřadit k zařízení (Use Spool) |
+    | › | Historie spotřeby cívky |
+    | 🗑️ | Smazat cívku |
+  </Tab>
+
+  <Tab title="Typy kabelů">
+    Katalog typů kabelů — musí existovat alespoň jeden typ, než lze vytvořit cívku.
+
+    Každý typ obsahuje:
+    - **Název** (např. "UTP Cat6", "Koaxiální RG6")
+    - **Barva** (pro vizuální rozlišení v přehledech)
+    - **Průměr vodiče** (volitelné)
+
+    <Tip>
+    Typy kabelů jsou sdílené napříč celou organizací.
+    </Tip>
+  </Tab>
+
+  <Tab title="Štítky">
+    Štítky slouží k organizaci cívek do skupin (např. "Sklad A", "Projekt Nord", "Urgentní").
+
+    Každý štítek má **název** a **barvu**. Jedna cívka může mít více štítků.
+  </Tab>
+</Tabs>
+
+## Vytvoření cívky
+
+<Steps>
+  <Step title="Přejděte na Cívky → + Přidat cívku">
+    Klikněte na tlačítko **Přidat cívku** v pravém horním rohu.
+  </Step>
+  <Step title="Vyplňte formulář">
+    - **Název cívky** — např. "UTP-2024-001"
+    - **Typ kabelu** — vyberte z katalogu
+    - **Počáteční délka** — délka kabelu na nové cívce v metrech
+    - **Štítky** — volitelně přiřaďte štítky
+  </Step>
+  <Step title="Uložte">
+    Cívka se okamžitě zobrazí v zásobníku a synchronizuje do mobilní aplikace.
+  </Step>
+</Steps>
+
+## Vyhledávání a filtrování
+
+Nad mřížkou cívek je lišta pro:
+- **Fulltextové hledání** — podle názvu nebo typu kabelu
+- **Filtr Stav** — Aktivní / Dokončené / Archivované
+- **Filtr Typ kabelu** — konkrétní typ
+- **Filtr Štítky** — cívky s vybraným štítkem
+
+## Historie spotřeby
+
+Kliknutím na **›** na kartě cívky otevřete modal s historií — přehled všech zaznamenaných spotřeb s datumem, délkou a přiřazeným projektem.

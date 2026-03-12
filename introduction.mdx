@@ -1,0 +1,48 @@
+---
+title: "Úvod do Spooleru"
+description: "Systém pro sledování spotřeby kabelů v reálném čase"
+---
+
+## Co je Spooler?
+
+**Spooler** je systém pro přesné měření a sledování spotřeby kabelů přímo na stavbě nebo v dílně. Skládá se ze tří součástí:
+
+<CardGroup cols={3}>
+  <Card title="Zařízení Spooler" icon="microchip" href="/hardware/overview">
+    Autonomní měřič délky kabelu s BLE konektivitou, displejem a baterií
+  </Card>
+  <Card title="Mobilní aplikace" icon="mobile" href="/mobile-app/getting-started">
+    iOS/Android app pro párování zařízení, správu cívek a synchronizaci dat
+  </Card>
+  <Card title="Webová aplikace" icon="globe" href="/web-app/dashboard">
+    Dashboard pro přehled projektů, reporty spotřeby a správu týmu
+  </Card>
+</CardGroup>
+
+## Jak to funguje
+
+<Steps>
+  <Step title="Připevněte Spooler k cívce">
+    Zařízení se připevní k ose cívky. Rotační enkodér AS5600 měří přesně každý otočení.
+  </Step>
+  <Step title="Spárujte přes mobilní aplikaci">
+    Přes Bluetooth Low Energy spárujete zařízení s cívkou ve vaší zásobě.
+  </Step>
+  <Step title="Měřte a zaznamenávejte">
+    Při odvíjení kabelu Spooler automaticky zaznamenává délku. Data se synchronizují do cloudu.
+  </Step>
+  <Step title="Sledujte přehled na webu">
+    V dashboardu vidíte spotřebu napříč projekty, stavy cívek a historii měření.
+  </Step>
+</Steps>
+
+## Technické parametry
+
+| Parametr | Hodnota |
+|----------|---------|
+| Enkodér | AS5600 (12-bit, 0–4095 kroků/otáčku) |
+| Konektivita | BLE 5.0 (Bluetooth Low Energy) |
+| Procesor | ESP32-C3 |
+| Reklamní interval | 500–1000 ms |
+| Výdrž baterie | ~6 měsíců (standby) |
+| Přesnost kalibrace | 0.1 mm |

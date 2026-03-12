@@ -1,0 +1,62 @@
+---
+title: "Přehled zařízení Spooler"
+description: "Technický popis a součásti zařízení"
+---
+
+## Popis
+
+**Spooler** je autonomní měřicí zařízení určené pro montáž na osu kabelové cívky. Pomocí magnetického rotačního enkodéru AS5600 přesně měří délku odvinutého kabelu a data přenáší bezdrátově přes Bluetooth Low Energy.
+
+## Součásti
+
+```
+┌─────────────────────────────────┐
+│          Displej (128×64)       │
+│   ┌─────────────────────────┐   │
+│   │  1247.3 m               │   │
+│   │  ████████░░  82%  🔋    │   │
+│   └─────────────────────────┘   │
+│                                 │
+│  [BTN]                [USB-C]   │
+└─────────────────────────────────┘
+         │
+    [AS5600 enkodér]  ← připevní se k ose cívky
+```
+
+| Součást | Popis |
+|---------|-------|
+| **Procesor** | ESP32-C3 (RISC-V, 160 MHz) |
+| **Enkodér** | AS5600 — 12-bit magnetický rotační snímač |
+| **Displej** | OLED 128×64 px (U8g2) |
+| **Konektivita** | BLE 5.0 |
+| **Napájení** | Li-Ion baterie + USB-C nabíjení |
+| **Tlačítko** | Jedno víceúčelové tlačítko |
+
+## Technické specifikace
+
+| Parametr | Hodnota |
+|----------|---------|
+| Rozlišení enkodéru | 4096 kroků/otáčku (12-bit) |
+| Kalibrační faktor | nastavitelný (výchozí 13.3 mm/otáčku) |
+| BLE reklamní interval | 500–1000 ms |
+| Rozsah BLE | ~30 m (volný prostor) |
+| Interval záznamu dat | 3 s |
+| Kapacita lokální paměti | NVS flash (ESP32) |
+
+## Fyzická instalace
+
+<Steps>
+  <Step title="Připravte magnetický adaptér">
+    Na osu cívky nasaďte dodávaný magnetický adaptér. Magnet musí být centrován vůči AS5600 enkodéru (vzdálenost 0.5–3 mm).
+  </Step>
+  <Step title="Připevněte Spooler">
+    Zařízení připevněte k bočnici cívky tak, aby enkodér byl přesně zarovnán s magnetem na ose.
+  </Step>
+  <Step title="Zkontrolujte signál enkodéru">
+    Na displeji se při správném umístění zobrazuje ikona enkodéru bez varování. Červená ikona upozorňuje na špatné zarovnání.
+  </Step>
+</Steps>
+
+<Warning>
+Magnet musí být umístěn přesně na středu osy. Excentricita způsobuje chybu měření.
+</Warning>

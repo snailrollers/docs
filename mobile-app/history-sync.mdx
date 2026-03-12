@@ -1,0 +1,73 @@
+---
+title: "Synchronizace historie"
+description: "Jak funguje přenos historických dat ze Spooler do aplikace"
+---
+
+## Co je synchronizace historie
+
+Spooler ukládá veškerá měření do své interní flash paměti. Při každém připojení mobilní aplikace se tato data automaticky stáhnou — i retrospektivně za dobu, kdy zařízení nebylo připojeno.
+
+<Info>
+Spooler funguje jako autonomní datalogger. Kabel můžete měřit offline týdny — data se stáhnou při dalším připojení.
+</Info>
+
+## Automatická synchronizace
+
+Po připojení Spooler k aplikaci se spustí synchronizace automaticky (do 3 sekund):
+
+1. Aplikace zjistí rozsah uložených dat (`CMD_HISTORY_INFO`)
+2. Stáhne chybějící události od posledního syncu
+3. Detekuje spotřební relace (úseky aktivního odvíjení)
+4. Uloží data lokálně a synchronizuje do cloudu
+
+Průběh synchronizace vidíte na kartě zařízení — zobrazuje se progress a počet stažených událostí.
+
+## Záložka Historie
+
+Na záložce **Historie** v detailu zařízení vidíte:
+
+```
+┌─────────────────────────────────┐
+│  Historie — Spooler-A3F2        │
+│                                 │
+│  ▼ Dnes                         │
+│  │  10:23  +47.3 m  (14 min)   │
+│  │  08:05  +12.1 m  (3 min)    │
+│                                 │
+│  ▼ Včera                        │
+│  │  15:41  +203.5 m (52 min)   │
+│  │  09:12  +88.2 m  (22 min)   │
+│                                 │
+│  Celkem synchronizováno:        │
+│  1 247 událostí · 2.3 GB        │
+└─────────────────────────────────┘
+```
+
+Každý řádek je jedna **spotřební relace** — kontinuální úsek odvíjení (přestávka < 60 sekund).
+
+## Ruční synchronizace
+
+Pokud chcete vynutit okamžitý sync:
+
+1. Přejděte do detailu zařízení
+2. Klepněte na **Synchronizovat historii** (ikona šipek)
+3. Počkejte na dokončení
+
+## Řešení problémů
+
+<AccordionGroup>
+  <Accordion title="Synchronizace nefunguje nebo se zasekla">
+    1. Zkontrolujte, zda je Spooler připojené (karta zařízení ukazuje "Online")
+    2. Ujistěte se, že máte přístup k internetu
+    3. Zkuste ruční synchronizaci
+    4. Pokud problém přetrvává, odpojte a znovu připojte zařízení
+  </Accordion>
+
+  <Accordion title="Historie je neúplná">
+    Spooler má omezenou kapacitu NVS flash. Nejstarší záznamy se přepisují, pokud paměť dojde. Doporučujeme synchronizovat alespoň jednou týdně.
+  </Accordion>
+
+  <Accordion title="Duplicitní záznamy v historii">
+    Synchronizace je idempotentní — stejný záznam se neuloží dvakrát. Pokud vidíte duplicity, kontaktujte podporu.
+  </Accordion>
+</AccordionGroup>
